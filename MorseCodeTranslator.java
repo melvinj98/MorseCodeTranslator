@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,13 +28,10 @@ public class MorseCodeTranslator {
 
         }
 
-        /*
-        StringBuilder word = new StringBuilder();
-        for (String s : translatedMorseCodes) {
-            word.append(s);//forms word from converted letter
-        }
 
-         */
+
+
+
 
         //System.out.print("Translated text(text to morse): " + word);
 
@@ -107,18 +105,12 @@ public class MorseCodeTranslator {
      */
 
     public static List<String> morseToLetter(String input) {
-/*
-                getTokens(input);
-*/
+        String[] split = input.split("", 0);
 
-        List<String> morseCode = new ArrayList<>();
-
-        StringTokenizer tokenizer = new StringTokenizer(input, "  ");
-        while (tokenizer.hasMoreElements()) {
-            morseCode.add(tokenizer.nextToken());
-            morseCodes.add(morseCode);
+        StringBuilder word = new StringBuilder();
+        for (String s : translatedMorseCodes) {
+            word.append(s);//forms word from converted letter
         }
-
 
         for (int i = 0; i < morseCodes.size(); i++) {
             for (i = 0; i < morseCode.size(); i++) {
@@ -151,7 +143,8 @@ public class MorseCodeTranslator {
                     case "-..-" -> output = "x";
                     case "-.--" -> output = "y";
                     case "--.." -> output = "z";
-                    case " " -> output = "  ";
+                    case " " -> output = "";
+                    case "  " -> output = " ";
                     default -> System.out.println("Default Text");
                 }
                 translatedMorseCodes.add(output);
@@ -160,3 +153,4 @@ public class MorseCodeTranslator {
             return translatedMorseCodes;
     }
 }
+
