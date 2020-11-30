@@ -19,20 +19,25 @@ public class MorseCodeTranslator {
 
         if (input.charAt(0) != '-' && input.charAt(0) != '.') {
             letterToMorse(input);
+            for (int i = 0; i < wordList.size(); i++) {
+                System.out.print("Translated text(morse to text): " + wordList.get(i));
+            }
         } else {
             morseToLetter(input);
+
         }
 
+        /*
         StringBuilder word = new StringBuilder();
         for (String s : translatedMorseCodes) {
             word.append(s);//forms word from converted letter
         }
 
-        System.out.print("Translated text: " + word);
+         */
 
-        for (int i = 0; i < wordList.size(); i++) {
-            System.out.print(wordList.get(i));
-        }
+        //System.out.print("Translated text(text to morse): " + word);
+
+
     }
 
     public static String letterToMorse(String input) {
