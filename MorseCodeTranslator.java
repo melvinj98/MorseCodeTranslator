@@ -4,10 +4,9 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class MorseCodeTranslator {
-    static String input;
-    static String output;
+    static String input, output;
     static List<String> wordList = new ArrayList<>(); //contains a word converted to morse code
-    static List<String> morseCodes = new ArrayList<>(); //parsed morse codes
+    static List<List> morseCodes = new ArrayList<>(); //contains morseCode arrayLists
     static List<String> translatedMorseCodes = new ArrayList<>(); //morse to english
 
     //contains menu
@@ -35,18 +34,6 @@ public class MorseCodeTranslator {
             System.out.print(wordList.get(i));
         }
     }
-
-    /*
-    //parses a word
-    public static List<String> getTokens(String input) {
-        StringTokenizer tokenizer = new StringTokenizer(input, "  ");
-        while (tokenizer.hasMoreElements()) {
-            morseCodes.add(tokenizer.nextToken());
-        }
-        return morseCodes;
-    }
-
-     */
 
     public static String letterToMorse(String input) {
         String inputWord = input.toLowerCase();
@@ -102,55 +89,69 @@ public class MorseCodeTranslator {
         return word.toString();
     }
 
-    public static List<String> morseToLetter(String input) {
-/*
-
-
-
+    /*
+    //parses a word
+    public static List<String> getTokens(String input) {
         StringTokenizer tokenizer = new StringTokenizer(input, "  ");
         while (tokenizer.hasMoreElements()) {
             morseCodes.add(tokenizer.nextToken());
         }
-*/
-        getTokens(input);
-        //TODO finish changing case statements
-        //TODO parse morse into array
-        for (int i = 0; i < morseCodes.size(); ) {
-            String output = "";
+        return morseCodes;
+    }
 
-            switch (morseCodes.get(i)) {
-                case ".-" -> output = "a";
-                case "-..." -> output = "b";
-                case "-.-." -> output = "c";
-                case "-.." -> output = "d";
-                case "."-> output = "e";
-                case "..-." -> output = "f";
-                case "--." -> output = "g";
-                case "...." -> output = "h";
-                case ".." -> output = "i";
-                case ".---" -> output = "j";
-                case "-.-" -> output = "k";
-                case ".-.." -> output = "l";
-                case "--" -> output = "m";
-                case "-." -> output = "n";
-                case "---" -> output = "o";
-                case ".--." -> output = "p";
-                case "--.-" -> output = "q";
-                case ".-." -> output = "r";
-                case "..." -> output = "s";
-                case "-" -> output = "t";
-                case "..-" -> output = "u";
-                case "...-" -> output = "v";
-                case ".--" -> output = "w";
-                case "-..-" -> output = "x";
-                case "-.--" -> output = "y";
-                case "--.." -> output = "z";
-                case " " -> output = "  ";
-                default -> System.out.println("Default Text");
-            }
-            i++;
-            translatedMorseCodes.add(output);
+     */
+
+    public static List<String> morseToLetter(String input) {
+/*
+                getTokens(input);
+*/
+
+        List<String> morseCode = new ArrayList<>();
+
+        StringTokenizer tokenizer = new StringTokenizer(input, "  ");
+        while (tokenizer.hasMoreElements()) {
+            morseCode.add(tokenizer.nextToken());
+            morseCodes.add(morseCode);
         }
-        return translatedMorseCodes;
+
+
+        for (int i = 0; i < morseCodes.size(); i++) {
+            for (i = 0; i < morseCode.size(); i++) {
+                String output = "";
+
+                switch (morseCode.get(i)) {
+                    case ".-" -> output = "a";
+                    case "-..." -> output = "b";
+                    case "-.-." -> output = "c";
+                    case "-.." -> output = "d";
+                    case "." -> output = "e";
+                    case "..-." -> output = "f";
+                    case "--." -> output = "g";
+                    case "...." -> output = "h";
+                    case ".." -> output = "i";
+                    case ".---" -> output = "j";
+                    case "-.-" -> output = "k";
+                    case ".-.." -> output = "l";
+                    case "--" -> output = "m";
+                    case "-." -> output = "n";
+                    case "---" -> output = "o";
+                    case ".--." -> output = "p";
+                    case "--.-" -> output = "q";
+                    case ".-." -> output = "r";
+                    case "..." -> output = "s";
+                    case "-" -> output = "t";
+                    case "..-" -> output = "u";
+                    case "...-" -> output = "v";
+                    case ".--" -> output = "w";
+                    case "-..-" -> output = "x";
+                    case "-.--" -> output = "y";
+                    case "--.." -> output = "z";
+                    case " " -> output = "  ";
+                    default -> System.out.println("Default Text");
+                }
+                translatedMorseCodes.add(output);
+            }
+        }
+            return translatedMorseCodes;
     }
 }
