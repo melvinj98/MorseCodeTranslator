@@ -108,8 +108,7 @@ public class MorseCodeTranslator {
         String[] split = input.split("", 0);
 
         StringBuilder word = new StringBuilder();
-        for (String s : translatedMorseCodes) {
-            word.append(s);//forms word from converted letter
+        for (String s : split) {
         }
 
         for (int i = 0; i < morseCodes.size(); i++) {
