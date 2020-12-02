@@ -8,7 +8,7 @@ public class MorseCodeTest {
         MorseCodeTranslator translate = new MorseCodeTranslator();
         String inputWord = "hello hello";
         String output = MorseCodeTranslator.letterToMorse(inputWord);
-        Assertions.assertEquals(".... . .-.. .-.. ---  .... . .-.. .-.. ---", output);
+        Assertions.assertEquals(".... . .-.. .-.. ---  .... . .-.. .-.. --- ", output);
     }
 
     @Test

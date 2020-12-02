@@ -13,15 +13,23 @@ public class MorseCodeTranslator {
         Scanner keyboard = new Scanner(System.in);
         String option = "";
 
-        System.out.print("Enter text to be translated: ");
-        String input = keyboard.nextLine();
+        System.out.println("Welcome to Morse Code Translator");
 
-        if (input.charAt(0) != '-' && input.charAt(0) != '.')
-            finalAnswer = letterToMorse(input.toLowerCase());
-        else
-            finalAnswer =  morseToLetter(input);
-
-        System.out.println("Translated text: " + finalAnswer);
+        while(!option.toLowerCase().equals("")) {
+            System.out.print("Enter text to be translated: ");
+            String input = keyboard.nextLine();
+            option = input;
+            if(!option.toLowerCase().equals("q")) {
+                if (input.charAt(0) != '-' && input.charAt(0) != '.') {
+                    finalAnswer = letterToMorse(input.toLowerCase());
+                }
+                else {
+                    finalAnswer = morseToLetter(input);
+                }
+                System.out.println("Translated text: " + finalAnswer);
+            }
+        }
+                System.out.println("Exiting Translator");
     }
 
     public static String letterToMorse(String input) {
@@ -29,7 +37,7 @@ public class MorseCodeTranslator {
 
         StringBuilder output = new StringBuilder();
         for (String s : split) {
-            int x = 0;
+            //int x = 0;
             for (int i = 0; i < english.length; i++) {
                     if (s.equals(english[i])) {
                         if (s.equals("")) {
@@ -37,11 +45,8 @@ public class MorseCodeTranslator {
                         } else {
                             output.append(morse[i]).append(" ");
                         }
-
                     }
-
                 }
-
         }
         return output.toString();
     }
