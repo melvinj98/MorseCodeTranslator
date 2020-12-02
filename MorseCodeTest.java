@@ -1,13 +1,14 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-/*
 public class MorseCodeTest {
     @Test
-    void wordToMorse(){
+    void letterToMorse(){
         //TODO Take a word and output morse code equivalent
         MorseCodeTranslator translate = new MorseCodeTranslator();
-        String inputWord = "I am tall";
+        String inputWord = "hello hello";
         String output = MorseCodeTranslator.letterToMorse(inputWord);
-        Assertions.assertEquals("..  .- --  - .- .-.. .-.. ", output);
+        Assertions.assertEquals(".... . .-.. .-.. ---  .... . .-.. .-.. ---", output);
     }
 
     @Test
@@ -15,16 +16,9 @@ public class MorseCodeTest {
         //TODO Take a morse code and output letter equivalent
         MorseCodeTranslator translate = new MorseCodeTranslator();
         String inputMorse = "..  .- --  - .- .-.. .-.. ";
-        List<String> output = MorseCodeTranslator.morseToLetter(inputMorse);
+        String output = MorseCodeTranslator.morseToLetter(inputMorse);
         Assertions.assertEquals("i am tall",output);
-    }
-
-    @Test
-    void mainMethod(){
-        MorseCodeTranslator translate = new MorseCodeTranslator();
-        String input = "-...";
-
     }
 }
 
- */
+
