@@ -10,26 +10,23 @@ public class MorseCodeTranslator {
 
     //contains menu
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
         String option = "";
 
         System.out.println("Welcome to Morse Code Translator");
 
-        while(!option.toLowerCase().equals("")) {
+
             System.out.print("Enter text to be translated: ");
+            Scanner keyboard = new Scanner(System.in);
             String input = keyboard.nextLine();
             option = input;
-            if(!option.toLowerCase().equals("q")) {
-                if (input.charAt(0) != '-' && input.charAt(0) != '.') {
-                    finalAnswer = letterToMorse(input.toLowerCase());
-                }
-                else {
-                    finalAnswer = morseToLetter(input);
-                }
-                System.out.println("Translated text: " + finalAnswer);
+            if (input.charAt(0) != '-' && input.charAt(0) != '.') {
+                finalAnswer = letterToMorse(input.toLowerCase());
             }
-        }
-                System.out.println("Exiting Translator");
+            else{
+                finalAnswer = morseToLetter(input);
+            }
+
+                System.out.println("Translated text: " + finalAnswer);
     }
 
     public static String letterToMorse(String input) {
